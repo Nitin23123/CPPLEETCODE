@@ -163,6 +163,77 @@ void pattern10(int n){
         cout<< endl;    
     }
 }
+
+void pattern11(int n){
+    
+    for(int i=0;i<n;i++){
+        //space 
+        for(int j=0;j<n-i-1;j++){
+            cout<<" ";        
+        }
+        //star
+        char ch= 'A';
+        int breakpont = (2*i+1)/2;
+        for(int j=1;j<=(2*i)+1;j++){
+            cout<<ch;
+            if(j<=breakpont) ch++;
+            else ch--;
+            
+        }
+        //space
+        for(int j=0;j<n-i-1;j++){
+            cout<<" ";        
+        }
+        cout<<endl;        
+    }
+}
+
+void pattern12(int n){
+    for(int i =0; i< n ; i++){
+        for(char ch='E'- i ; ch<= 'E' ; ch++){
+            cout<<ch;
+        }
+    cout << endl;
+    }
+}
+
+void pattern13(int n){
+    int initS= 0;
+    for (int i=0 ; i<n; i++){
+       
+        //star
+        for(int j =1; j<=n-i;j++){
+            cout<< "*";
+        }
+        //space
+        for(int j=0 ; j<initS ; j++){
+            cout<<" ";
+        }
+        //star
+        for(int j =1; j<=n-i;j++){
+            cout<< "*";
+        }
+        cout << endl;
+        initS+=2;
+    }
+    initS=8;
+    for(int i=1 ; i<=n;i++  ){
+        //star
+        for(int j =1; j<=i;j++){
+            cout<< "*";
+        }
+        //space
+        for(int j=0 ; j<initS ; j++){
+            cout<<" ";
+        }
+        //star
+        for(int j =1; j<= i;j++){
+            cout<< "*";
+        }
+        cout << endl;
+        initS-=2;
+    }
+}
 int main(){
     int n;
     cin>> n;
@@ -180,5 +251,8 @@ int main(){
    // pattern7(n);
    //pattern8(n);
     //pattern9(n);
-    pattern10(n);
+    //pattern10(n);
+   // pattern11(n);
+  // pattern12(n);
+    pattern13(n);
  }
