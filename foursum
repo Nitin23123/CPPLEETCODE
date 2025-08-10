@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        set<vector<int>> uniq; // to avoid duplicates
+        sort(nums.begin(),
+             nums.end()); // optional, but helps with duplicate handling
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                unordered_map<int, int> mpp; // reset for each (i, j)
+
+                for (int k = j + 1; k < n; k++) {
+                    long long fourth =
+                        (long long)target - nums[i] - nums[j] - nums[k];
+                    if (mpp.find(fourth) != mpp.end()) {
+                        vector<int> quad = {nums[i], nums[j], nums[k],
+                                            (int)fourth};
+                        sort(quad.begin(), quad.end());
+                        uniq.insert(quad);
+                    }
+                    mpp[nums[k]] = k;
+                }
+            }
+        }
+
+        return vector<vector<int>>(uniq.begin(), uniq.end());
+    }
+};
+//optimal
